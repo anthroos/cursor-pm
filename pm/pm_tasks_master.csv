@@ -1,1 +1,0 @@
-task_id,project_id,parent_task_id,task_name,description,status,priority,priority_score,assignee,created_date,last_updated,deadline,estimated_hours,actual_hours,actual_tokens,blocked_by,blocking,crm_activity_id,crm_person_linkedin_url,tags,notes,order_index

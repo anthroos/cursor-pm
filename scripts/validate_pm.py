@@ -30,10 +30,12 @@ def validate_projects(df):
     # Required fields
     required = ['project_id', 'project_name', 'status', 'priority', 'created_date', 'last_updated']
     for field in required:
-        if field in df.columns:
-            missing = df[df[field].isna() | (df[field] == '')]
-            if not missing.empty:
-                errors.append(f"Projects: Missing {field} in {len(missing)} rows")
+        if field not in df.columns:
+            errors.append(f"Projects: Missing column '{field}'")
+            continue
+        missing = df[df[field].isna() | (df[field] == '')]
+        if not missing.empty:
+            errors.append(f"Projects: Missing {field} in {len(missing)} rows")
 
     # Valid status values
     valid_statuses = ['idea', 'planning', 'in_progress', 'on_hold', 'completed', 'cancelled']
@@ -67,10 +69,12 @@ def validate_tasks(df, projects_df):
     # Required fields
     required = ['task_id', 'project_id', 'task_name', 'status', 'priority', 'created_date', 'last_updated']
     for field in required:
-        if field in df.columns:
-            missing = df[df[field].isna() | (df[field] == '')]
-            if not missing.empty:
-                errors.append(f"Tasks: Missing {field} in {len(missing)} rows")
+        if field not in df.columns:
+            errors.append(f"Tasks: Missing column '{field}'")
+            continue
+        missing = df[df[field].isna() | (df[field] == '')]
+        if not missing.empty:
+            errors.append(f"Tasks: Missing {field} in {len(missing)} rows")
 
     # Valid status values
     valid_statuses = ['backlog', 'todo', 'in_progress', 'blocked', 'review', 'done', 'cancelled']
@@ -118,10 +122,12 @@ def validate_execution_log(df, tasks_df, projects_df):
     # Required fields
     required = ['log_id', 'task_id', 'project_id', 'date', 'duration_minutes', 'activity_type', 'description', 'result']
     for field in required:
-        if field in df.columns:
-            missing = df[df[field].isna() | (df[field] == '')]
-            if not missing.empty:
-                errors.append(f"Execution Log: Missing {field} in {len(missing)} rows")
+        if field not in df.columns:
+            errors.append(f"Execution Log: Missing column '{field}'")
+            continue
+        missing = df[df[field].isna() | (df[field] == '')]
+        if not missing.empty:
+            errors.append(f"Execution Log: Missing {field} in {len(missing)} rows")
 
     # Valid activity_type values
     valid_types = ['planning', 'coding', 'debugging', 'research', 'review', 'discussion', 'other']
@@ -162,10 +168,12 @@ def validate_learnings(df):
     # Required fields
     required = ['learning_id', 'type', 'insight', 'created_date']
     for field in required:
-        if field in df.columns:
-            missing = df[df[field].isna() | (df[field] == '')]
-            if not missing.empty:
-                errors.append(f"Learnings: Missing {field} in {len(missing)} rows")
+        if field not in df.columns:
+            errors.append(f"Learnings: Missing column '{field}'")
+            continue
+        missing = df[df[field].isna() | (df[field] == '')]
+        if not missing.empty:
+            errors.append(f"Learnings: Missing {field} in {len(missing)} rows")
 
     # Valid type values
     valid_types = ['estimation', 'process', 'technical', 'tool', 'communication']

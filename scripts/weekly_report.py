@@ -17,10 +17,17 @@ def generate_weekly_report():
     week_ago = today - timedelta(days=7)
 
     # Load data
-    projects_df = pd.read_csv(PM_DIR / "pm_projects_master.csv")
-    tasks_df = pd.read_csv(PM_DIR / "pm_tasks_master.csv")
-    execution_df = pd.read_csv(PM_DIR / "pm_execution_log.csv")
-    learnings_df = pd.read_csv(PM_DIR / "pm_learnings.csv")
+    def safe_read(filename):
+        path = PM_DIR / filename
+        try:
+            return pd.read_csv(path)
+        except (FileNotFoundError, pd.errors.EmptyDataError):
+            return pd.DataFrame()
+
+    projects_df = safe_read("pm_projects_master.csv")
+    tasks_df = safe_read("pm_tasks_master.csv")
+    execution_df = safe_read("pm_execution_log.csv")
+    learnings_df = safe_read("pm_learnings.csv")
 
     print("=" * 60)
     print(f"📅 WEEKLY REPORT: {week_ago} to {today}")

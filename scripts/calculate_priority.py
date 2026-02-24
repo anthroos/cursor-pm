@@ -20,7 +20,11 @@ def calculate_priority_scores(dry_run=False):
     """Calculate priority_score for all tasks."""
 
     tasks_path = PM_DIR / "pm_tasks_master.csv"
-    tasks_df = pd.read_csv(tasks_path)
+    try:
+        tasks_df = pd.read_csv(tasks_path)
+    except (FileNotFoundError, pd.errors.EmptyDataError):
+        print("No tasks file found or file is empty.")
+        return
 
     if tasks_df.empty:
         print("No tasks to process.")
@@ -75,7 +79,7 @@ def calculate_priority_scores(dry_run=False):
             try:
                 created = datetime.strptime(str(created_date), '%Y-%m-%d').date()
                 age_days = (today - created).days
-                age_factor = min(0.3, age_days * 0.01)
+                age_factor = min(1.0, age_days * 0.01)
             except (ValueError, TypeError):
                 pass
 
@@ -90,7 +94,9 @@ def calculate_priority_scores(dry_run=False):
 
     # Update DataFrame
     tasks_df['priority_score'] = scores
-    tasks_df['last_updated'] = today.strftime('%Y-%m-%d')
+    # Only update last_updated for active tasks (not done/cancelled)
+    active_mask = ~tasks_df['status'].isin(['done', 'cancelled'])
+    tasks_df.loc[active_mask, 'last_updated'] = today.strftime('%Y-%m-%d')
 
     if dry_run:
         print("DRY RUN - no changes saved")

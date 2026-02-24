@@ -1,0 +1,9 @@
+task_id,project_id,parent_task_id,task_name,description,status,priority,priority_score,assignee,created_date,last_updated,deadline,estimated_hours,actual_hours,actual_tokens,blocked_by,blocking,crm_activity_id,crm_person_linkedin_url,tags,notes,order_index
+task-0001,proj-a1b2,,Backend API,Build core API endpoints,in_progress,hot,0.82,Alex,2026-02-01,2026-02-24,2026-03-01,30,18,45000,,,,,,Epic for all backend work,1
+task-0002,proj-a1b2,task-0001,Design database schema,Create PostgreSQL schema for users and projects,done,hot,0.0,Alex,2026-02-01,2026-02-10,,4,3.5,8200,,task-0003,,,backend,Completed ahead of schedule,1
+task-0003,proj-a1b2,task-0001,Build auth endpoints,Implement login and register and refresh token endpoints,in_progress,hot,0.78,Alex,2026-02-10,2026-02-24,2026-02-28,8,4,12000,task-0002,task-0004,,,auth,Using JWT with refresh tokens,2
+task-0004,proj-a1b2,task-0001,Write API tests,Integration tests for all endpoints,todo,medium,0.55,Alex,2026-02-10,2026-02-24,2026-03-01,6,,0,task-0003,,,,testing,Need 80%+ coverage,3
+task-0005,proj-a1b2,,Frontend UI,Build React frontend,blocked,hot,0.70,Alex,2026-02-05,2026-02-24,2026-03-10,20,,0,task-0003,task-0006,,,frontend,Blocked until auth API is ready,2
+task-0006,proj-a1b2,task-0005,Build login page,Login and registration forms,todo,medium,0.50,Alex,2026-02-05,2026-02-24,,4,,0,task-0005,,,,frontend,Login and register forms,1
+task-0007,proj-a1b2,,Demo for Acme Corp,Prepare product demo for potential client,todo,hot,0.75,Alex,2026-02-20,2026-02-24,2026-03-05,3,,0,task-0003,,act-demo-01,https://linkedin.com/in/john-acme,sales,CRM-linked demo for Acme lead,3
+task-0008,proj-c3d4,,Write launch blog post,Announce MVP launch with technical deep-dive,todo,medium,0.40,Alex,2026-02-15,2026-02-24,2026-03-20,3,,0,,,,,content,Launch announcement post,1

@@ -1,0 +1,4 @@
+log_id,task_id,project_id,date,start_time,end_time,duration_minutes,tokens_input,tokens_output,tokens_total,activity_type,description,result,blockers_encountered,learnings,claude_session_id
+log-001,task-0002,proj-a1b2,2026-02-05,09:00,10:30,90,3200,2100,5300,planning,Designed database schema for users and projects tables,completed,,Schema design benefits from drawing ERD first,session-abc
+log-002,task-0002,proj-a1b2,2026-02-08,14:00,15:00,60,1500,1200,2700,coding,Implemented schema migrations and seed data,completed,,Always add created_at/updated_at to every table,session-def
+log-003,task-0003,proj-a1b2,2026-02-15,10:00,12:00,120,5000,4500,9500,coding,Built login and register endpoints with JWT,partial,,OAuth integration takes 2x longer than basic JWT,session-ghi

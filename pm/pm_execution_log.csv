@@ -1,0 +1,1 @@
+log_id,task_id,project_id,date,start_time,end_time,duration_minutes,tokens_input,tokens_output,tokens_total,activity_type,description,result,blockers_encountered,learnings,claude_session_id

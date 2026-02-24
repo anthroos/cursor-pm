@@ -1,6 +1,19 @@
 # Environment
 .env
+.env.*
 *.env
+
+# Private keys
+*.key
+*.pem
+*.p12
+
+# User data (keep only headers; use sample/ for examples)
+pm/pm_projects_master.csv
+pm/pm_tasks_master.csv
+pm/pm_execution_log.csv
+pm/pm_learnings.csv
+!pm/.gitkeep
 
 # Python
 __pycache__/

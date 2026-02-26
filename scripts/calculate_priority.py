@@ -79,7 +79,7 @@ def calculate_priority_scores(dry_run=False):
             try:
                 created = datetime.strptime(str(created_date), '%Y-%m-%d').date()
                 age_days = (today - created).days
-                age_factor = min(1.0, age_days * 0.01)
+                age_factor = min(0.3, age_days * 0.01)
             except (ValueError, TypeError):
                 pass
 

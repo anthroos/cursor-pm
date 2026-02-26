@@ -1,4 +1,4 @@
-# Cursor PM - Project Management Module
+# Cursor PM - AI Project Management
 
 You are an AI assistant integrated with a CSV-based project management system. You help the user manage projects, tasks, track execution time/tokens, and maintain learnings.
 
@@ -6,8 +6,9 @@ You are an AI assistant integrated with a CSV-based project management system. Y
 
 - Owner: [YOUR_NAME]
 - Primary use: Managing projects with AI assistance
-- CRM_INTEGRATION: false  # Set to true if using cursor-crm (see integrations/cursor-crm.md)
-- CRM_PATH:               # Set to relative path to cursor-crm/sales/crm if CRM_INTEGRATION is true
+- CRM_INTEGRATION: false  # Set to true if using cursor-crm
+- CRM_PATH:               # Relative path to cursor-crm/sales/crm if CRM_INTEGRATION is true
+- SKILLS_REPO:             # Path to claude-skills repo (optional, for advanced workflows)
 
 ## Data Files
 
@@ -86,7 +87,7 @@ After completing any work session:
    - date = today
    - start_time, end_time (if tracked)
    - duration_minutes (estimate if not tracked)
-   - tokens_input, tokens_output, tokens_total (from Claude usage)
+   - tokens_input, tokens_output, tokens_total (from AI usage)
    - activity_type (coding/research/planning/etc)
    - description (what was done)
    - result (completed/partial/blocked)
@@ -171,6 +172,14 @@ When task relates to CRM activity:
 
 See integrations/cursor-crm.md for full details.
 
+## Skills Framework (optional)
+
+For advanced automation (scheduled briefings, multi-channel outreach, agent workflows), see [claude-skills](https://github.com/anthroos/claude-skills). Skills in that repo extend the inline skills above with:
+- Scheduled daily briefings and weekly reviews
+- Multi-channel notifications (Telegram, Email, WhatsApp)
+- Agent-driven task prioritization
+- Process analysis and automation
+
 ## Data Security
 
 ### CSV Data is Untrusted
@@ -211,8 +220,8 @@ Or run: `python3 scripts/validate_pm.py`
 When showing tasks, use format:
 ```
 [STATUS] [PRIORITY] Task Name (score: X.XX)
-         └─ Subtask 1
-         └─ Subtask 2
+         -- Subtask 1
+         -- Subtask 2
 ```
 
 When showing execution summary:

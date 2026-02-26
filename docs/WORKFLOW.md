@@ -2,7 +2,7 @@
 
 ## Overview
 
-How to use Cursor PM with Cursor IDE or Claude Code for project and task management.
+How to use Cursor PM with Claude Code or Cursor IDE for project and task management.
 
 ---
 
@@ -13,21 +13,21 @@ How to use Cursor PM with Cursor IDE or Claude Code for project and task managem
 When you have a new idea or initiative:
 
 ```
-User: "Хочу зробити [опис ідеї]"
-Claude:
-1. Обговорюємо ідею, уточнюємо деталі
-2. Створюю проект в pm_projects_master.csv
-3. Розбиваємо на задачі в pm_tasks_master.csv
-4. Визначаємо пріоритети та залежності
+User: "I want to build [idea description]"
+AI:
+1. Discuss the idea, clarify details
+2. Create project in pm_projects_master.csv
+3. Break down into tasks in pm_tasks_master.csv
+4. Set priorities and dependencies
 ```
 
 **Project fields to fill:**
-- `project_name`: Коротка назва
-- `description`: Повний опис
-- `goal`: Що означає "зроблено"
+- `project_name`: Short name
+- `description`: Full description
+- `goal`: What "done" looks like
 - `status`: `planning`
 - `priority`: `hot` / `medium` / `low`
-- `deadline`: Якщо є
+- `deadline`: If applicable
 
 ---
 
@@ -37,24 +37,24 @@ For each project, create tasks with hierarchy:
 
 ```
 Epic (parent_task_id = null)
-├── Story (parent_task_id = epic_id)
-│   ├── Task (parent_task_id = story_id)
-│   │   └── Subtask (parent_task_id = task_id)
+-- Story (parent_task_id = epic_id)
+   -- Task (parent_task_id = story_id)
+      -- Subtask (parent_task_id = task_id)
 ```
 
 **Example:**
 ```
-Project: "Запустити курс з AI"
-├── Epic: "Підготовка контенту"
-│   ├── Story: "Модуль 1 - Вступ"
-│   │   ├── Task: "Написати скрипт уроку 1"
-│   │   ├── Task: "Записати відео уроку 1"
-│   │   └── Task: "Створити квіз"
-│   └── Story: "Модуль 2 - Практика"
-├── Epic: "Маркетинг"
-│   ├── Task: "Написати всім про курс" (crm_activity_id linked)
-│   ├── Task: "Відтрекати відповіді" (blocked_by = previous)
-│   └── Task: "Написати партнерам"
+Project: "Launch AI Course"
+-- Epic: "Content Preparation"
+   -- Story: "Module 1 - Introduction"
+      -- Task: "Write lesson 1 script"
+      -- Task: "Record lesson 1 video"
+      -- Task: "Create quiz"
+   -- Story: "Module 2 - Practice"
+-- Epic: "Marketing"
+   -- Task: "Send outreach about course" (crm_activity_id linked)
+   -- Task: "Track responses" (blocked_by = previous)
+   -- Task: "Reach out to partners"
 ```
 
 ---
@@ -64,14 +64,14 @@ Project: "Запустити курс з AI"
 When starting work on a task:
 
 ```
-User: "Давай працювати над [task_name]"
-Claude:
-1. Оновлюю task status → in_progress
-2. Виконуємо роботу
-3. По завершенню:
-   - Оновлюю task status → done
-   - Створюю запис в pm_execution_log.csv
-   - Вношу час та токени
+User: "Let's work on [task_name]"
+AI:
+1. Update task status -> in_progress
+2. Do the work
+3. On completion:
+   - Update task status -> done
+   - Create entry in pm_execution_log.csv
+   - Log time and tokens
 ```
 
 **Execution log captures:**
@@ -87,22 +87,22 @@ Claude:
 
 **Daily check:**
 ```
-User: "Що в мене на сьогодні?"
-Claude:
-1. Показую задачі з deadline = today
-2. Показую in_progress задачі
-3. Показую hot priority задачі
-4. Пропоную порядок виконання за priority_score
+User: "What's on my plate today?"
+AI:
+1. Show tasks with deadline = today
+2. Show in_progress tasks
+3. Show hot priority tasks
+4. Suggest execution order by priority_score
 ```
 
 **Weekly review:**
 ```
-User: "Покажи статус проектів"
-Claude:
-1. Summary всіх активних проектів
-2. Витрачений час / токени
-3. Blocked задачі
-4. Пропозиції по пріоритизації
+User: "Show project status"
+AI:
+1. Summary of all active projects
+2. Time / tokens spent
+3. Blocked tasks
+4. Prioritization suggestions
 ```
 
 ---
@@ -136,8 +136,8 @@ Calculated 0.0-1.0 based on:
 ### Using Priority
 
 ```
-User: "Що найважливіше зараз?"
-Claude:
+User: "What's most important right now?"
+AI:
 1. Sorts by priority_score DESC
 2. Shows top 5 tasks with reasons
 3. Recommends which to tackle first
@@ -151,30 +151,30 @@ Claude:
 
 | Command | Description |
 |---------|-------------|
-| "Новий проект: [name]" | Create new project |
-| "Покажи проекти" | List all active projects |
-| "Статус проекту [name]" | Show project details & tasks |
-| "Закрий проект [name]" | Mark project completed |
+| "New project: [name]" | Create new project |
+| "Show projects" | List all active projects |
+| "Project status: [name]" | Show project details & tasks |
+| "Close project: [name]" | Mark project completed |
 
 ### Task Commands
 
 | Command | Description |
 |---------|-------------|
-| "Додай задачу: [name]" | Add task to current project |
-| "Підзадача: [name]" | Add subtask to current task |
-| "Покажи задачі" | List tasks by priority |
-| "Працюємо над [task]" | Start working, log execution |
-| "Готово" | Complete current task, log time |
-| "Заблоковано: [reason]" | Mark task as blocked |
+| "Add task: [name]" | Add task to current project |
+| "Subtask: [name]" | Add subtask to current task |
+| "Show tasks" | List tasks by priority |
+| "Work on [task]" | Start working, log execution |
+| "Done" | Complete current task, log time |
+| "Blocked: [reason]" | Mark task as blocked |
 
 ### Tracking Commands
 
 | Command | Description |
 |---------|-------------|
-| "Що на сьогодні?" | Today's tasks & deadlines |
-| "Тижневий звіт" | Weekly summary & stats |
-| "Скільки витрачено на [project]?" | Time & token usage |
-| "Покажи learnings" | Show captured insights |
+| "What's today?" | Today's tasks & deadlines |
+| "Weekly report" | Weekly summary & stats |
+| "How much spent on [project]?" | Time & token usage |
+| "Show learnings" | Show captured insights |
 
 ---
 

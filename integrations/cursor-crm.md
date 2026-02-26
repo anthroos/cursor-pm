@@ -24,9 +24,9 @@ Cursor PM works standalone. If you also manage sales/outreach, you can connect i
     └── pm/
 ```
 
-### 2. Enable CRM integration in .cursorrules
+### 2. Enable CRM integration in CLAUDE.md
 
-Open `cursor-pm/.cursorrules` and change:
+Open `cursor-pm/CLAUDE.md` and change:
 
 ```
 CRM_INTEGRATION: true
@@ -72,9 +72,9 @@ task_name,crm_activity_id,crm_person_linkedin_url
 
 ```
 CRM: Deal "Acme Corp AI Pilot" won
- ↓
+ ->
 PM: Create project "Acme Corp Pilot" (crm_link_type: company, crm_link_id: acme.com)
- ↓
+ ->
 PM: Break into tasks:
   - "Kickoff call with John" (crm_person_linkedin_url: linkedin.com/in/john-acme)
   - "Deliver phase 1"
@@ -85,13 +85,13 @@ PM: Break into tasks:
 
 ```
 CRM: Sent 50 outreach messages (activity logged)
- ↓
+ ->
 PM: Create task "Track responses by Wednesday"
     crm_activity_id: act-batch-001
     deadline: 2026-02-26
- ↓
+ ->
 Wednesday: "What's today?" shows the task with CRM context
- ↓
+ ->
 Execute: Check CRM for replies, update statuses, create follow-up tasks
 ```
 
@@ -142,23 +142,24 @@ To enable: update the formula in `scripts/calculate_priority.py`.
 ```
 ~/work/
 ├── cursor-crm/
-│   ├── .cursorrules
+│   ├── CLAUDE.md
 │   ├── sales/
-│   │   ├── crm/
-│   │   │   ├── contacts/
-│   │   │   │   ├── companies.csv
-│   │   │   │   └── people.csv
-│   │   │   ├── relationships/
-│   │   │   │   ├── leads.csv
-│   │   │   │   ├── clients.csv
-│   │   │   │   └── deals.csv
-│   │   │   └── activities.csv
-│   │   └── outreach/
+│   │   └── crm/
+│   │       ├── contacts/
+│   │       │   ├── companies.csv
+│   │       │   └── people.csv
+│   │       ├── relationships/
+│   │       │   ├── leads.csv
+│   │       │   ├── clients.csv
+│   │       │   ├── partners.csv
+│   │       │   └── deals.csv
+│   │       ├── activities.csv
+│   │       └── products.csv
 │   ├── integrations/
 │   └── scripts/
 │
 └── cursor-pm/
-    ├── .cursorrules
+    ├── CLAUDE.md
     ├── pm/
     │   ├── pm_projects_master.csv
     │   ├── pm_tasks_master.csv
@@ -169,3 +170,13 @@ To enable: update the formula in `scripts/calculate_priority.py`.
 ```
 
 Both repos are independent git repositories. No shared dependencies. Integration is purely at the data level through shared IDs/URLs.
+
+---
+
+## Skills Framework
+
+For advanced automation (scheduled briefings, multi-channel notifications, agent workflows), see [claude-skills](https://github.com/anthroos/claude-skills). The skills repo provides:
+- Scheduled daily briefings combining PM + CRM data
+- Multi-channel outreach agents (Telegram, Email, WhatsApp)
+- CRM data import and validation pipelines
+- Process analysis and automation tools

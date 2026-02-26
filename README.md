@@ -2,7 +2,7 @@
 
 AI-native project management that runs in your IDE. No Jira, no dashboards -- just talk to your projects.
 
-Built for founders and developers who manage projects alongside code. Works with [Cursor](https://cursor.sh) IDE and [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview).
+Built for founders and developers who manage projects alongside code. Works with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) and [Cursor](https://cursor.sh) IDE.
 
 ## Why Cursor PM
 
@@ -25,6 +25,7 @@ Built for founders and developers who manage projects alongside code. Works with
 - **Learning capture** -- record insights to improve over time
 - **Weekly reports** -- automated summaries of progress
 - **CRM integration** -- optional link to [cursor-crm](https://github.com/anthroos/cursor-crm)
+- **Skills framework** -- optional advanced automation via [claude-skills](https://github.com/anthroos/claude-skills)
 
 ## Quick Start
 
@@ -37,7 +38,8 @@ cd cursor-pm
 pip3 install pandas
 
 # 3. Open in your IDE
-cursor .  # or claude in terminal
+claude   # Claude Code
+# or: cursor .
 
 # 4. Start talking
 # "New project: Launch MVP"
@@ -45,13 +47,13 @@ cursor .  # or claude in terminal
 # "What's today?"
 ```
 
-Edit `.cursorrules` to set your name and preferences.
+Edit `CLAUDE.md` to set your name and preferences.
 
 ## Project Structure
 
 ```
 cursor-pm/
-├── .cursorrules              # AI rules and skills
+├── CLAUDE.md                 # AI rules and skills (edit this)
 ├── README.md
 │
 ├── pm/                       # Your data (empty, ready to use)
@@ -106,8 +108,8 @@ Tasks can block each other:
 
 ```
 "Design database schema" (task-001)
-    └── blocks → "Build auth endpoints" (task-002, blocked_by: task-001)
-        └── blocks → "Write API tests" (task-003, blocked_by: task-002)
+    └── blocks -> "Build auth endpoints" (task-002, blocked_by: task-001)
+        └── blocks -> "Write API tests" (task-003, blocked_by: task-002)
 ```
 
 The priority algorithm boosts tasks that block others -- unblocking work is always high priority.
@@ -204,9 +206,17 @@ python3 scripts/calculate_priority.py --dry-run
 python3 scripts/weekly_report.py
 ```
 
-## Integration with cursor-crm
+## Ecosystem
 
-Cursor PM works great standalone, but if you also do sales/outreach, pair it with [cursor-crm](https://github.com/anthroos/cursor-crm).
+Cursor PM is part of a three-repo system. Each works standalone, together they form a complete business operating system:
+
+| Repo | Purpose |
+|------|---------|
+| **cursor-pm** (this repo) | Project & task management |
+| [cursor-crm](https://github.com/anthroos/cursor-crm) | CRM: contacts, leads, deals, activities |
+| [claude-skills](https://github.com/anthroos/claude-skills) | Skills framework, agents, multi-channel automation |
+
+### Integration with cursor-crm
 
 When connected:
 - Link projects to CRM companies/deals
@@ -216,9 +226,18 @@ When connected:
 
 See [integrations/cursor-crm.md](integrations/cursor-crm.md) for setup guide.
 
+### Integration with claude-skills
+
+For advanced automation:
+- Scheduled daily briefings and weekly reviews
+- Multi-channel notifications (Telegram, Email, WhatsApp)
+- Agent-driven task prioritization and process analysis
+
+See [claude-skills](https://github.com/anthroos/claude-skills) for the full skills framework.
+
 ## Requirements
 
-- [Cursor IDE](https://cursor.sh) (free or pro) or [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) or [Cursor IDE](https://cursor.sh)
 - Python 3.10+
 - pandas (`pip3 install pandas`)
 
@@ -242,6 +261,10 @@ See [integrations/cursor-crm.md](integrations/cursor-crm.md) for setup guide.
 - Enterprise teams needing Gantt charts and resource planning
 - Organizations requiring audit trails and compliance
 - Teams that need real-time collaboration dashboards
+
+## Migrating from v1
+
+If you used the previous version with `.cursorrules`, see [docs/MIGRATION_V1_TO_V2.md](docs/MIGRATION_V1_TO_V2.md).
 
 ## Sample Data
 

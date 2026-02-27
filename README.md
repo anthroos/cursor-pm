@@ -1,6 +1,22 @@
 # Cursor PM
 
-AI-native project management that runs in your IDE. No Jira, no dashboards -- just talk to your projects.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/anthroos/cursor-pm)](https://github.com/anthroos/cursor-pm/stargazers)
+[![Works with Claude Code](https://img.shields.io/badge/Works%20with-Claude%20Code-blueviolet)](https://docs.anthropic.com/en/docs/claude-code/overview)
+[![Works with Cursor](https://img.shields.io/badge/Works%20with-Cursor-orange)](https://cursor.sh)
+
+**AI-native project management that runs in your IDE.** No Jira, no dashboards -- just talk to your projects.
+
+```
+You: "New project: Launch MVP"
+AI:  Created proj-a1b2. Breaking down into tasks...
+     Created 5 tasks: Design DB schema, Build auth, API endpoints, Frontend, Deploy.
+
+You: "What's today?"
+AI:  Hot: Build auth endpoints (score: 0.92, blocks 2 tasks)
+     Due today: Design review with client
+     In progress: API endpoints (started 2h ago)
+```
 
 Built for founders and developers who manage projects alongside code. Works with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) and [Cursor](https://cursor.sh) IDE.
 
@@ -212,9 +228,10 @@ Cursor PM is part of a three-repo system. Each works standalone, together they f
 
 | Repo | Purpose |
 |------|---------|
-| **cursor-pm** (this repo) | Project & task management |
-| [cursor-crm](https://github.com/anthroos/cursor-crm) | CRM: contacts, leads, deals, activities |
-| [claude-skills](https://github.com/anthroos/claude-skills) | Skills framework, agents, multi-channel automation |
+| [cursor-crm](https://github.com/anthroos/cursor-crm) | AI-native CRM in your IDE |
+| **cursor-pm** (this) | Project & task management |
+| [claude-code-review-skill](https://github.com/anthroos/claude-code-review-skill) | AI code review (280+ checks) |
+| [claude-code-multichannel-outreach](https://github.com/anthroos/claude-code-multichannel-outreach) | Multi-channel messaging automation |
 
 ### Integration with cursor-crm
 
@@ -272,7 +289,7 @@ Check the `sample/` directory for pre-filled example data showing a realistic pr
 
 ## Contributing
 
-PRs welcome. Keep it simple.
+Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 

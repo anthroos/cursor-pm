@@ -1,10 +1,10 @@
-# Cursor PM - Schema Documentation
+# Plaintext PM - Schema Documentation
 
 ## Overview
 
 CSV-based project and task management, optimized for Cursor IDE and Claude Code. Tracks projects, tasks (with unlimited hierarchy), execution time/tokens, and learnings.
 
-Works standalone. Optionally integrates with [cursor-crm](https://github.com/anthroos/cursor-crm) -- see [integrations/cursor-crm.md](../integrations/cursor-crm.md).
+Works standalone. Optionally integrates with [plaintext-crm](https://github.com/anthroos/plaintext-crm) -- see [integrations/plaintext-crm.md](../integrations/plaintext-crm.md).
 
 ---
 
@@ -140,13 +140,13 @@ Run: `python3 scripts/calculate_priority.py` or add `--dry-run` to preview.
 
 ## CRM Integration (Optional)
 
-If you use [cursor-crm](https://github.com/anthroos/cursor-crm), tasks and projects can be linked to CRM entities:
+If you use [plaintext-crm](https://github.com/anthroos/plaintext-crm), tasks and projects can be linked to CRM entities:
 
 - **crm_activity_id**: Links task to an outreach activity
 - **crm_person_linkedin_url**: Links task to a specific person
 - **crm_link_type + crm_link_id** on projects: Links project to a company/person/activity
 
-These fields are empty by default. See [integrations/cursor-crm.md](../integrations/cursor-crm.md) for setup.
+These fields are empty by default. See [integrations/plaintext-crm.md](../integrations/plaintext-crm.md) for setup.
 
 ---
 

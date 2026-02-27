@@ -1,8 +1,8 @@
-# Integration with cursor-crm
+# Integration with plaintext-crm
 
 ## Overview
 
-Cursor PM works standalone. If you also manage sales/outreach, you can connect it to [cursor-crm](https://github.com/anthroos/cursor-crm) for bidirectional context.
+Plaintext PM works standalone. If you also manage sales/outreach, you can connect it to [plaintext-crm](https://github.com/anthroos/plaintext-crm) for bidirectional context.
 
 **What you get:**
 - Link projects to CRM companies and deals
@@ -18,19 +18,19 @@ Cursor PM works standalone. If you also manage sales/outreach, you can connect i
 
 ```
 ~/work/
-├── cursor-crm/     # Sales & CRM data
+├── plaintext-crm/  # Sales & CRM data
 │   └── sales/crm/
-└── cursor-pm/      # Project management
+└── plaintext-pm/   # Project management
     └── pm/
 ```
 
 ### 2. Enable CRM integration in CLAUDE.md
 
-Open `cursor-pm/CLAUDE.md` and change:
+Open `plaintext-pm/CLAUDE.md` and change:
 
 ```
 CRM_INTEGRATION: true
-CRM_PATH: ../cursor-crm/sales/crm
+CRM_PATH: ../plaintext-crm/sales/crm
 ```
 
 This activates CRM-related skills and context lookups.
@@ -141,7 +141,7 @@ To enable: update the formula in `scripts/calculate_priority.py`.
 
 ```
 ~/work/
-├── cursor-crm/
+├── plaintext-crm/
 │   ├── CLAUDE.md
 │   ├── sales/
 │   │   └── crm/
@@ -158,7 +158,7 @@ To enable: update the formula in `scripts/calculate_priority.py`.
 │   ├── integrations/
 │   └── scripts/
 │
-└── cursor-pm/
+└── plaintext-pm/
     ├── CLAUDE.md
     ├── pm/
     │   ├── pm_projects_master.csv

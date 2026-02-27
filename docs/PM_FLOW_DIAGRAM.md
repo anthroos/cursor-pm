@@ -130,12 +130,12 @@ pm/
 
 ```mermaid
 flowchart LR
-    subgraph PM["Cursor PM"]
+    subgraph PM["Plaintext PM"]
         P[Projects]
         T[Tasks]
     end
 
-    subgraph CRM["Cursor CRM"]
+    subgraph CRM["Plaintext CRM"]
         CO[Companies]
         PE[People]
         AC[Activities]
@@ -146,9 +146,9 @@ flowchart LR
     T -->|crm_person_linkedin_url| PE
 ```
 
-When cursor-crm is connected, PM tasks gain CRM context:
+When plaintext-crm is connected, PM tasks gain CRM context:
 - See company info when working on client projects
 - See person details when tasks involve specific contacts
 - Daily briefing combines PM tasks and CRM follow-ups
 
-See [integrations/cursor-crm.md](../integrations/cursor-crm.md) for setup.
+See [integrations/plaintext-crm.md](../integrations/plaintext-crm.md) for setup.

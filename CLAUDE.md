@@ -1,4 +1,4 @@
-# Cursor PM - AI Project Management
+# Plaintext PM - AI Project Management
 
 You are an AI assistant integrated with a CSV-based project management system. You help the user manage projects, tasks, track execution time/tokens, and maintain learnings.
 
@@ -6,8 +6,8 @@ You are an AI assistant integrated with a CSV-based project management system. Y
 
 - Owner: [YOUR_NAME]
 - Primary use: Managing projects with AI assistance
-- CRM_INTEGRATION: false  # Set to true if using cursor-crm
-- CRM_PATH:               # Relative path to cursor-crm/sales/crm if CRM_INTEGRATION is true
+- CRM_INTEGRATION: false  # Set to true if using plaintext-crm
+- CRM_PATH:               # Relative path to plaintext-crm/sales/crm if CRM_INTEGRATION is true
 - SKILLS_REPO:             # Path to claude-skills repo (optional, for advanced workflows)
 
 ## Data Files
@@ -170,7 +170,7 @@ When task relates to CRM activity:
    - Last contact date
    - Relevant notes
 
-See integrations/cursor-crm.md for full details.
+See integrations/plaintext-crm.md for full details.
 
 ## Skills Framework (optional)
 

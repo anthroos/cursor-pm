@@ -1,7 +1,7 @@
-# Cursor PM
+# Plaintext PM
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/anthroos/cursor-pm)](https://github.com/anthroos/cursor-pm/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/anthroos/plaintext-pm)](https://github.com/anthroos/plaintext-pm/stargazers)
 [![Works with Claude Code](https://img.shields.io/badge/Works%20with-Claude%20Code-blueviolet)](https://docs.anthropic.com/en/docs/claude-code/overview)
 [![Works with Cursor](https://img.shields.io/badge/Works%20with-Cursor-orange)](https://cursor.sh)
 
@@ -20,9 +20,9 @@ AI:  Hot: Build auth endpoints (score: 0.92, blocks 2 tasks)
 
 Built for founders and developers who manage projects alongside code. Works with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) and [Cursor](https://cursor.sh) IDE.
 
-## Why Cursor PM
+## Why Plaintext PM
 
-| Traditional PM | Cursor PM |
+| Traditional PM | Plaintext PM |
 |---|---|
 | Switch to Jira, create ticket, fill 15 fields | Say "new task: fix auth bug, hot priority" |
 | Open dashboard to check progress | Ask "what's today?" |
@@ -40,15 +40,15 @@ Built for founders and developers who manage projects alongside code. Works with
 - **Execution logging** -- track time and AI token usage per session
 - **Learning capture** -- record insights to improve over time
 - **Weekly reports** -- automated summaries of progress
-- **CRM integration** -- optional link to [cursor-crm](https://github.com/anthroos/cursor-crm)
+- **CRM integration** -- optional link to [plaintext-crm](https://github.com/anthroos/plaintext-crm)
 - **Skills framework** -- optional advanced automation via [claude-skills](https://github.com/anthroos/claude-skills)
 
 ## Quick Start
 
 ```bash
 # 1. Clone
-git clone https://github.com/anthroos/cursor-pm.git
-cd cursor-pm
+git clone https://github.com/anthroos/plaintext-pm.git
+cd plaintext-pm
 
 # 2. Install dependencies
 pip3 install pandas
@@ -68,7 +68,7 @@ Edit `CLAUDE.md` to set your name and preferences.
 ## Project Structure
 
 ```
-cursor-pm/
+plaintext-pm/
 ├── CLAUDE.md                 # AI rules and skills (edit this)
 ├── README.md
 │
@@ -90,7 +90,7 @@ cursor-pm/
 │   └── PM_FLOW_DIAGRAM.md   # System diagram
 │
 ├── integrations/
-│   └── cursor-crm.md        # How to connect with CRM
+│   └── plaintext-crm.md     # How to connect with CRM
 │
 └── scripts/
     ├── validate_pm.py        # Data validation
@@ -224,16 +224,15 @@ python3 scripts/weekly_report.py
 
 ## Ecosystem
 
-Cursor PM is part of a three-repo system. Each works standalone, together they form a complete business operating system:
+Plaintext PM is part of a multi-repo system. Each works standalone, together they form a complete business operating system:
 
 | Repo | Purpose |
 |------|---------|
-| [cursor-crm](https://github.com/anthroos/cursor-crm) | AI-native CRM in your IDE |
-| **cursor-pm** (this) | Project & task management |
+| [plaintext-crm](https://github.com/anthroos/plaintext-crm) | AI-native CRM in your IDE |
+| **plaintext-pm** (this) | Project & task management |
 | [claude-code-review-skill](https://github.com/anthroos/claude-code-review-skill) | AI code review (280+ checks) |
-| [claude-code-multichannel-outreach](https://github.com/anthroos/claude-code-multichannel-outreach) | Multi-channel messaging automation |
 
-### Integration with cursor-crm
+### Integration with plaintext-crm
 
 When connected:
 - Link projects to CRM companies/deals
@@ -241,7 +240,7 @@ When connected:
 - Daily briefing includes both PM tasks and CRM follow-ups
 - Priority scoring can factor in CRM recency
 
-See [integrations/cursor-crm.md](integrations/cursor-crm.md) for setup guide.
+See [integrations/plaintext-crm.md](integrations/plaintext-crm.md) for setup guide.
 
 ### Integration with claude-skills
 

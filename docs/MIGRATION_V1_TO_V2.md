@@ -25,7 +25,7 @@ The `age_factor` cap in `scripts/calculate_priority.py` is now `min(0.3, ...)` t
 ### Ecosystem references
 
 v2 introduces references to two companion repos:
-- [cursor-crm](https://github.com/anthroos/cursor-crm) -- CRM (unchanged)
+- [plaintext-crm](https://github.com/anthroos/plaintext-crm) -- CRM (unchanged)
 - [claude-skills](https://github.com/anthroos/claude-skills) -- Skills framework, agents, automation (new)
 
 ### CRM integration directory structure

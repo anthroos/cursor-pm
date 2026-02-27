@@ -1,8 +1,8 @@
-# Cursor PM - Workflow Guide
+# Plaintext PM - Workflow Guide
 
 ## Overview
 
-How to use Cursor PM with Claude Code or Cursor IDE for project and task management.
+How to use Plaintext PM with Claude Code or Cursor IDE for project and task management.
 
 ---
 
@@ -109,7 +109,7 @@ AI:
 
 ## Integration with CRM (Optional)
 
-If you use [cursor-crm](https://github.com/anthroos/cursor-crm), you can link PM tasks to CRM entities. See [integrations/cursor-crm.md](../integrations/cursor-crm.md) for full setup guide.
+If you use [plaintext-crm](https://github.com/anthroos/plaintext-crm), you can link PM tasks to CRM entities. See [integrations/plaintext-crm.md](../integrations/plaintext-crm.md) for full setup guide.
 
 ---
 
@@ -182,7 +182,7 @@ AI:
 
 1. **Always break down** - No task should be > 2 hours estimated
 2. **Set deadlines** - Even soft ones help prioritization
-3. **Link to CRM** - If using cursor-crm, keep PM and CRM connected for context
+3. **Link to CRM** - If using plaintext-crm, keep PM and CRM connected for context
 4. **Log immediately** - Don't batch execution logs
 5. **Capture learnings** - They compound over time
 6. **Review weekly** - Adjust priorities, clean up done tasks

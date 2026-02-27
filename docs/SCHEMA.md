@@ -16,7 +16,7 @@ Master table for all projects.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `project_id` | UUID | Yes | Unique identifier |
+| `project_id` | string | Yes | Unique identifier (format: proj-XXXX) |
 | `project_name` | string | Yes | Short project name |
 | `description` | string | No | Full project description |
 | `goal` | string | No | What success looks like |
@@ -45,9 +45,9 @@ Master table for all tasks with unlimited hierarchy support.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `task_id` | UUID | Yes | Unique identifier |
-| `project_id` | UUID | Yes | FK to pm_projects_master |
-| `parent_task_id` | UUID | No | FK to pm_tasks_master (for subtasks) |
+| `task_id` | string | Yes | Unique identifier (format: task-XXXX, zero-padded decimal) |
+| `project_id` | string | Yes | FK to pm_projects_master |
+| `parent_task_id` | string | No | FK to pm_tasks_master (for subtasks) |
 | `task_name` | string | Yes | Short task name |
 | `description` | string | No | Full task description |
 | `status` | enum | Yes | `backlog` / `todo` / `in_progress` / `blocked` / `review` / `done` / `cancelled` |
@@ -62,7 +62,7 @@ Master table for all tasks with unlimited hierarchy support.
 | `actual_tokens` | int | No | Sum of execution log tokens |
 | `blocked_by` | string | No | Comma-separated task_ids that block this task |
 | `blocking` | string | No | Comma-separated task_ids this task is blocking |
-| `crm_activity_id` | UUID | No | *Optional CRM integration:* FK to CRM activities |
+| `crm_activity_id` | string | No | *Optional CRM integration:* FK to CRM activities |
 | `crm_person_linkedin_url` | string | No | *Optional CRM integration:* FK to CRM people |
 | `tags` | string | No | Comma-separated tags |
 | `notes` | string | No | Additional notes |
@@ -79,9 +79,9 @@ Tracks every work session on a task (time, tokens, results).
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `log_id` | UUID | Yes | Unique identifier |
-| `task_id` | UUID | Yes | FK to pm_tasks_master |
-| `project_id` | UUID | Yes | FK to pm_projects_master (denormalized for queries) |
+| `log_id` | string | Yes | Unique identifier |
+| `task_id` | string | Yes | FK to pm_tasks_master |
+| `project_id` | string | Yes | FK to pm_projects_master (denormalized for queries) |
 | `date` | YYYY-MM-DD | Yes | Session date |
 | `start_time` | HH:MM | No | When work started |
 | `end_time` | HH:MM | No | When work ended |
@@ -106,10 +106,10 @@ Aggregated learnings from project work for continuous improvement.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `learning_id` | UUID | Yes | Unique identifier |
+| `learning_id` | string | Yes | Unique identifier |
 | `type` | enum | Yes | `estimation` / `process` / `technical` / `tool` / `communication` |
-| `project_id` | UUID | No | Related project (if specific) |
-| `task_id` | UUID | No | Related task (if specific) |
+| `project_id` | string | No | Related project (if specific) |
+| `task_id` | string | No | Related task (if specific) |
 | `insight` | string | Yes | The learning itself |
 | `impact_score` | float | No | How impactful (0.0-1.0) |
 | `evidence_count` | int | No | How many times observed |

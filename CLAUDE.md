@@ -38,7 +38,7 @@ Full schema: `docs/SCHEMA.md`
 ### SKILL: Create Project
 When user says "New project" or describes a new initiative:
 1. Discuss and clarify the project scope
-2. Generate project_id (format: proj-XXXX, 4 hex chars)
+2. Generate project_id (format: proj-XXXX, 4 alphanumeric chars)
 3. Add row to pm_projects_master.csv with:
    - project_name, description, goal
    - status = "planning"
@@ -49,7 +49,7 @@ When user says "New project" or describes a new initiative:
 
 ### SKILL: Create Task
 When user says "Add task" or during project breakdown:
-1. Generate task_id (format: task-XXXX, 4 hex chars)
+1. Generate task_id (format: task-XXXX, 4 zero-padded decimal digits)
 2. Determine parent_task_id (null for top-level, or existing task_id for subtask)
 3. Add row to pm_tasks_master.csv with:
    - task_name, description

@@ -92,11 +92,13 @@ def calculate_priority_scores(dry_run=False):
         )
         scores.append(round(score, 3))
 
-    # Update DataFrame
+    # Update DataFrame -- only set last_updated for tasks whose score actually changed
+    old_scores = tasks_df['priority_score'].tolist() if 'priority_score' in tasks_df.columns else [None] * len(scores)
     tasks_df['priority_score'] = scores
-    # Only update last_updated for active tasks (not done/cancelled)
     active_mask = ~tasks_df['status'].isin(['done', 'cancelled'])
-    tasks_df.loc[active_mask, 'last_updated'] = today.strftime('%Y-%m-%d')
+    for i in range(len(scores)):
+        if active_mask.iloc[i] and old_scores[i] != scores[i]:
+            tasks_df.at[i, 'last_updated'] = today.strftime('%Y-%m-%d')
 
     if dry_run:
         print("DRY RUN - no changes saved")

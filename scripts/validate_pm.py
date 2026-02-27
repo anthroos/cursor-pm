@@ -17,7 +17,7 @@ def load_csv(filename):
     try:
         df = pd.read_csv(path)
         return df
-    except pd.errors.EmptyDataError:
+    except (pd.errors.EmptyDataError, FileNotFoundError):
         return pd.DataFrame()
 
 def validate_projects(df):
@@ -190,6 +190,33 @@ def validate_learnings(df):
 
     return errors
 
+def validate_csv_injection(dataframes):
+    """Check all text fields in all CSVs for CSV formula injection.
+
+    Values starting with =, +, -, @, \\t, or \\r can trigger formula execution
+    when opened in spreadsheet applications.
+    """
+    errors = []
+    dangerous_prefixes = ('=', '+', '-', '@', '\t', '\r')
+
+    for csv_name, df in dataframes.items():
+        if df.empty:
+            continue
+        for col in df.columns:
+            if df[col].dtype != object:
+                continue
+            for idx, value in df[col].items():
+                if not isinstance(value, str):
+                    continue
+                if value.startswith(dangerous_prefixes):
+                    errors.append(
+                        f"{csv_name}: Potential CSV injection in column '{col}', "
+                        f"row {idx} — value starts with '{value[0]}'"
+                    )
+
+    return errors
+
+
 def main():
     print("🔍 Validating PM Module Data...")
     print(f"   Directory: {PM_DIR}")
@@ -207,6 +234,14 @@ def main():
     all_errors.extend(validate_tasks(tasks_df, projects_df))
     all_errors.extend(validate_execution_log(execution_df, tasks_df, projects_df))
     all_errors.extend(validate_learnings(learnings_df))
+
+    # CSV formula injection check across all files
+    all_errors.extend(validate_csv_injection({
+        'Projects': projects_df,
+        'Tasks': tasks_df,
+        'Execution Log': execution_df,
+        'Learnings': learnings_df,
+    }))
 
     # Report results
     if all_errors:

@@ -1,3 +1,3 @@
 project_id,project_name,description,goal,status,priority,priority_score,owner,created_date,last_updated,deadline,estimated_hours,actual_hours,actual_tokens,crm_link_type,crm_link_id,tags,notes
 proj-a1b2,Launch MVP,Build and ship v1 of the product to first beta users,Ship to 10 beta users and get feedback,in_progress,hot,0.85,Alex,2026-02-01,2026-02-24,2026-03-15,80,32,,company,acme.com,product,Core product launch
-proj-c3d4,Content Strategy,Create blog posts and documentation to attract early users,Publish 5 articles and get 1000 organic visits,planning,medium,0.45,Alex,2026-02-15,2026-02-24,,20,0,,,,,marketing,Supporting launch with content
+proj-c3d4,Content Strategy,Create blog posts and documentation to attract early users,Publish 5 articles and get 1000 organic visits,planning,medium,0.45,Alex,2026-02-15,2026-02-24,,20,0,,,,marketing,Supporting launch with content

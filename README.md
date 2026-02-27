@@ -72,7 +72,7 @@ plaintext-pm/
 ├── CLAUDE.md                 # AI rules and skills (edit this)
 ├── README.md
 │
-├── pm/                       # Your data (empty, ready to use)
+├── pm/                       # Your data (starts empty; CSV files are created on first use)
 │   ├── pm_projects_master.csv
 │   ├── pm_tasks_master.csv
 │   ├── pm_execution_log.csv

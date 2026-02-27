@@ -15,7 +15,7 @@ Thanks for your interest in contributing! This project is part of the [Claude Co
 - Bug fixes
 - New validation checks
 - Documentation improvements
-- Integration guides for new channels
+- Integration guides for new tools
 - Schema improvements
 - Sample data improvements
 
